@@ -749,19 +749,11 @@ public class SharedCameraActivity extends AppCompatActivity implements GLSurface
             // If not tracking, don't draw 3D objects.
             if (camera.getTrackingState() == TrackingState.PAUSED) return;
 
-            // Determine aspect ratio of the output GL surface, accounting for the current display rotation
-            // relative to the camera sensor orientation of the device.
-            float displayAspectRatio = displayRotationHelper.getCameraSensorRelativeViewportAspectRatio(cameraId);
-
             // ARCore attached the surface to GL context using the texture ID we provided
             // in createCameraPreviewSession() via sharedSession.setCameraTextureName(…).
             isGlAttached = true;
 
             // If frame is ready, render camera preview image to the GL surface.
-            // depth_frame
-            // **********************************************************************************************************************
-            //                    OCCLUSION Enabled background renderer
-            // **********************************************************************************************************************
             // render background with occlusion.
             // Get projection matrix.
 
@@ -773,8 +765,6 @@ public class SharedCameraActivity extends AppCompatActivity implements GLSurface
             // Keep the screen unlocked while tracking, but allow it to lock when tracking stops.
             trackingStateHelper.updateKeepScreenOnFlag(camera.getTrackingState());
 
-
-            //Log.v(TAG + "thread: ", "info: " + MiscUtils.getThreadInfo(redisServerThread));
         }
 
         /********************************************************************************************************************* */
