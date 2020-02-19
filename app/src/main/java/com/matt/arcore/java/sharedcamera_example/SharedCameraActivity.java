@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-/*
-
-Modified version of Google SharedCamera example, to make use of TOF sensor in AR mode. Code for switching between AR/Non-AR mode removed,
-and added occlusion from TOF sensor, and hit testing from TOF sensor, also use of camera images in OpenCV format for computer vision.
-
- */
 
 
 package com.matt.arcore.java.sharedcamera_example;
